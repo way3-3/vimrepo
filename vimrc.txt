@@ -1,4 +1,12 @@
-
+"~/.vimcr
+"""\\wsl$\Ubuntu\home\tafsir
+"set paste
+""set nopaste
+"set noautoindent"~/.vimcr
+"""\\wsl$\Ubuntu\home\tafsir
+"set paste
+""set nopaste
+"set noautoindent
 colorscheme gruvbox
 set background=dark
 set clipboard=unnamedplus
