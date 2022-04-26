@@ -1,1 +1,49 @@
 
+colorscheme gruvbox
+set background=dark
+set clipboard=unnamedplus
+set relativenumber
+set mouse=a
+syntax on
+set tabstop=4
+set smartindent
+set autoindent
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set smartcase
+set expandtab
+set ruler
+inoremap { {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {{ {
+"inoremap {} {}
+inore jj <Esc>
+map <C-a> <esc>ggVG<CR>
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+call plug#begin('~/.vim/plugged')
+Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree'
+"Plug 'tpope/vim-surround'
+call plug#end()
+map <C-n> :NERDTreeToggle<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r < ./inp.txt <CR>
+autocmd filetype cpp nnoremap <F6> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r <CR>
+"Clipboard configuration
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+augroup WSLYank
+autocmd!
+autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+augroup END
+endif
+au BufNewFile,BufRead *.tex
+\ set nocursorline |
+\ set nornu |
+\ set number |
+\ let g:loaded_matchparen=1 |
