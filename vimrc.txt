@@ -11,6 +11,7 @@ colorscheme gruvbox
 set background=dark
 set clipboard=unnamedplus
 set relativenumber
+set number
 set mouse=a
 syntax on
 set tabstop=4
@@ -22,6 +23,7 @@ set smarttab
 set smartcase
 set expandtab
 set ruler
+set autowrite
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
